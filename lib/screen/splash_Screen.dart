@@ -1,4 +1,4 @@
-import 'package:chess_game/screen/chess_game.dart';
+import 'package:chess_game/screen/chess_game/chess_game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:lottie/lottie.dart';
@@ -33,7 +33,7 @@ class _SplashscreenState extends State<Splashscreen> {
           children: [
             // Lottie Animation
             Lottie.asset(
-              'assets/Animation - 1750492317822.json',
+              'assets/animations/splash.json',
               width: 200,
               height: 200,
               fit: BoxFit.contain,

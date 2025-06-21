@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_chess_board/flutter_chess_board.dart';
 
 class ChessGame extends StatefulWidget {
@@ -13,7 +14,7 @@ class _ChessGameState extends State<ChessGame> {
   final ChessBoardController controller = ChessBoardController();
   String currentTurn = "White";
 
-  int totalTime = 100; // 5 minutes
+  int totalTime = 20; // 5 minutes
   Timer? gameTimer;
   bool gameStarted = false;
   bool gameOver = false;
@@ -53,7 +54,9 @@ class _ChessGameState extends State<ChessGame> {
             child: const Text("🔁 Restart"),
           ),
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              SystemNavigator.pop(); // Closes the app
+            },
             child: const Text("❌ Exit"),
           ),
         ],
@@ -85,7 +88,10 @@ class _ChessGameState extends State<ChessGame> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
-        title: const Text('Chess Game'),
+        title: const Text(
+          'Chess Game',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
       ),
       body: Column(
